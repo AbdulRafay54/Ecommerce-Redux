@@ -11,63 +11,63 @@ const Navbar = () => {
     };
 
     return (
-        <div className='fixed top-0 left-0 w-full bg-black text-white p-4 z-50'>
-            <div className='flex flex-wrap justify-between items-center'>
-                
-                <div className='hidden md:flex justify-center gap-6 flex-grow'>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="">
+        <nav className='fixed top-0 left-0 w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 shadow-lg z-50'>
+            <div className='flex justify-between items-center'>
+                <h1 className='text-2xl font-bold'>My E-commerce</h1>
+
+                <div className='hidden md:flex items-center gap-8'>
+                    <Link className='transition-colors duration-300 hover:text-gray-200 font-semibold text-lg' to="">
                         Home
                     </Link>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="about">
+                    <Link className='transition-colors duration-300 hover:text-gray-200 font-semibold text-lg' to="about">
                         About
                     </Link>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="contact">
+                    <Link className='transition-colors duration-300 hover:text-gray-200 font-semibold text-lg' to="contact">
                         Contact
                     </Link>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="service">
+                    <Link className='transition-colors duration-300 hover:text-gray-200 font-semibold text-lg' to="service">
                         Service
                     </Link>
                 </div>
 
-                
                 <button 
-                    className="md:hidden bg-white text-white py-2 px-4 rounded-lg transition-transform transform hover:scale-105 shadow-lg font-bold"
+                    className="md:hidden text-white p-2 rounded-lg transition-transform transform hover:scale-110 focus:outline-none"
                     onClick={toggleMenu}
                 >
-                    {isOpen ? (
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
-                        <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
-                    </svg>
-                    ) : (
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" className=" text-black octicon octicon-three-bars Button-visual">
-                            <path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z"></path>
-                        </svg>
-                    )}
+                    <img 
+                        src={isOpen ? 'https://img.icons8.com/ios-filled/50/FFFFFF/multiply.png' : 'https://img.icons8.com/ios-filled/50/FFFFFF/menu.png'} 
+                        alt={isOpen ? "Close Menu" : "Open Menu"} 
+                        className="w-6 h-6" 
+                    />
                 </button>
 
-                
-                <button className="bg-white text-black py-2 px-4 rounded-lg transition-transform transform hover:scale-105 shadow-lg font-bold text-lg">
+                <Link to="/cart" className="bg-white text-blue-600 py-2 px-4 rounded-lg transition-transform transform hover:scale-105 shadow-lg font-bold flex items-center">
+                    <img 
+                        src='https://img.icons8.com/ios-filled/50/000000/shopping-cart.png' 
+                        alt="Cart" 
+                        className="w-5 h-5 mr-2" 
+                    />
                     Cart {selector.length}
-                </button>
+                </Link>
             </div>
 
             {isOpen && (
-                <div className='md:hidden flex flex-col mt-2'>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="">
+                <div className='md:hidden flex flex-col mt-2 bg-white rounded-lg shadow-lg p-4'>
+                    <Link className='transition-colors duration-300 hover:text-blue-500 font-semibold text-lg' to="">
                         Home
                     </Link>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="about">
+                    <Link className='transition-colors duration-300 hover:text-blue-500 font-semibold text-lg' to="about">
                         About
                     </Link>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="contact">
+                    <Link className='transition-colors duration-300 hover:text-blue-500 font-semibold text-lg' to="contact">
                         Contact
                     </Link>
-                    <Link className='transition-colors duration-300 hover:text-gray-400 font-bold text-lg' to="service">
+                    <Link className='transition-colors duration-300 hover:text-blue-500 font-semibold text-lg' to="service">
                         Service
                     </Link>
                 </div>
             )}
-        </div>
+        </nav>
     )
 }
 
